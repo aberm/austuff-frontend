@@ -4,6 +4,9 @@ export default function orderReducer(state={}, action) {
       console.log("order being loaded: ", action.payload);
       return {...action.payload}
       break;
+    case "LOGOUT":
+      return {};
+      break;
     default:
       return state;
   }

@@ -16,14 +16,11 @@ class Login extends React.Component {
 
   submitLogin = (event) => {
     event.preventDefault();
-    console.log(event.target.username.value);
-    console.log(event.target.password.value);
 
     // make mapDispatchToProps
     // make controlled login (onChange)
 
     this.props.login(this.state.userLogin)
-    // .then(res => console.log("hi:", res))
     .then(res => {
       if (res === "nope login didn't work") {
         this.setState({
@@ -68,7 +65,7 @@ class Login extends React.Component {
       <>
       { this.state.logged_in ?
         (<div className="logout">
-        <h4>Hello, <Link key={this.props.user.id} to={`/chatroom/${this.props.user.id}`}>
+        <h4>Hello, <Link key={this.props.user.id} to={`/users/${this.props.user.id}`}>
           {this.props.user.username}
           </Link>
         </h4>

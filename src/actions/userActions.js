@@ -1,4 +1,5 @@
 import { API_ROOT, HEADERS } from "../constants";
+import { createOrLoadLastOrder } from '../actions/orderActions';
 
 export const login = (userLogin) => {
   return (dispatch) => {
@@ -40,6 +41,7 @@ export const getUserData = () => {
     // .then(res => console.log("the load fetch: ", res))
     .then(res => {
       dispatch(loadUser(res));
+      dispatch(createOrLoadLastOrder())
       console.log("heyyy you got here user fetch successful");
     })
   }

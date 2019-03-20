@@ -14,6 +14,9 @@ export default function cartReducer(
     case "CLEAR_CART":
       return [];
       break;
+    case "LOGOUT":
+      return [];
+      break;
     default:
       return state;
   }

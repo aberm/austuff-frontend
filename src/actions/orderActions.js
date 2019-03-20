@@ -16,6 +16,7 @@ export const placeOrder = (order) => {
     .then(res => res.json())
     .then(console.log)
     .then(dispatch(clearCart()))
+    .then(dispatch(createNewOrder()))
   }
 }
 
@@ -23,22 +24,31 @@ export const createOrLoadLastOrder = () => {
   return (dispatch, getState) => {
     if (Object.keys(getState().user).length > 0) {
       const user = getState().user;
-      dispatch(loadOrCreateOrder(user.orders[user.orders.length - 1]))
-    } else {
-      // if just reloaded >
-      dispatch(getUserData())
-      .then(x => {
-        const user = getState().user;
+      if (user.orders.length) {
         dispatch(loadOrCreateOrder(user.orders[user.orders.length - 1]))
-      })
+      } else {
+        dispatch(createNewOrder())
+      }
     }
+    // else {
+    //   // if just reloaded >
+    //   dispatch(getUserData())
+    //   .then(x => {
+    //     const user = getState().user;
+    //     if (user.orders.length) {
+    //       dispatch(loadOrCreateOrder(user.orders[user.orders.length - 1]))
+    //     } else {
+    //       dispatch(createNewOrder())
+    //     }
+    //   })
+    // }
   }
 }
 
 const loadOrCreateOrder = (order) => {
   console.log("latest order from user is:", order)
   return (dispatch) => {
-    if (order.completed){
+    if (order.length === 0 || order.completed){
       console.log("yeh");
       dispatch(createNewOrder())
     } else {

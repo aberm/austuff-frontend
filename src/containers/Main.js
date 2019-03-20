@@ -16,11 +16,10 @@ import { createOrLoadLastOrder } from '../actions/orderActions';
 class Main extends React.Component {
 
   componentDidMount(){
-    this.props.getProducts();
-    this.props.getUserData();
     if (localStorage.getItem("token") !== null){ // if logged in -- make this better
+      this.props.getProducts();
+      this.props.getUserData();
       // Better yet - redirect to login
-      this.props.createOrLoadLastOrder()
     }
   }
 

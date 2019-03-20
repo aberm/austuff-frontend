@@ -21,7 +21,7 @@ export const addToCart = (product) => {
 
 export const addItemToCart = (item) => {
   return (dispatch, getState) => {
-    return fetch(API_ROOT + '/order_items', {
+    return fetch(API_ROOT + 'order_items', {
       method: "POST",
       headers: {...HEADERS,
         "Authorization": `Bearer ${localStorage.getItem("token")}`
