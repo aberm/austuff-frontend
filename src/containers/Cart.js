@@ -13,7 +13,7 @@ class Cart extends React.Component {
 
   render(){
     const itemList = this.props.cartItems.map(item => (
-      <li>
+      <li key={item.id}>
         <ProductCard key={item.id} product={item.product} />
         <button onClick={() => this.props.removeItemFromCart(item)}>Remove from Cart</button>
       </li>

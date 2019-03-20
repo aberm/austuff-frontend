@@ -32,8 +32,8 @@ class Main extends React.Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/products/:id" render={(routerProps) => <Product product={this.props.products} routerProps={routerProps}/>} />
-            <Route exact path="/orders/:id" component={Order} />
-            <Route exact path="/users/:id" component={User} />
+            <Route exact path="/orders/:id" render={(routerProps) => <Order orders={this.props.user.orders} routerProps={routerProps}/>} />
+            <Route exact path="/user" render={(routerProps) => <User user={this.props.user} routerProps={routerProps}/>} />
             <Route exact path="/shop" component={Shop} />
           </Switch>
         </React.Fragment>

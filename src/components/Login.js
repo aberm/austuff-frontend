@@ -65,7 +65,7 @@ class Login extends React.Component {
       <>
       { this.state.logged_in ?
         (<div className="logout">
-        <h4>Hello, <Link key={this.props.user.id} to={`/users/${this.props.user.id}`}>
+        <h4>Hello, <Link to={`/user`}>
           {this.props.user.username}
           </Link>
         </h4>
