@@ -1,5 +1,6 @@
 import React from "react";
 import Shop from "./Shop";
+import Cart from "./Cart";
 import Checkout from "./Checkout";
 import Signup from "../components/Signup";
 import Login from "../components/Login";
@@ -12,6 +13,7 @@ import { connect } from "react-redux";
 import { getProducts } from "../actions/productsActions";
 import { getUserData } from "../actions/userActions";
 import { createOrLoadLastOrder } from "../actions/orderActions";
+import "./Main.css";
 
 class Main extends React.Component {
   componentDidMount() {
@@ -61,6 +63,7 @@ class Main extends React.Component {
             <Route exact path="/shop" component={Shop} />
           </Switch>
         </React.Fragment>
+        <Cart />
       </div>
     );
   }

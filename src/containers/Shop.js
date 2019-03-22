@@ -19,7 +19,7 @@ class Shop extends React.Component {
     ));
 
     const cards = this.props.products.map(product => (
-      <li key={product.id}>
+      <li key={product.id} className="ui card">
         <ProductCard key={product.id} product={product} />
         <button
           onClick={() => {
@@ -34,7 +34,9 @@ class Shop extends React.Component {
     return (
       <div className="shop">
         <h1>Hello from Shop</h1>
-        <ul>{localStorage.getItem("token") !== null ? cards : null}</ul>
+        <ul class="ui four cards">
+          {localStorage.getItem("token") !== null ? cards : null}
+        </ul>
         <Switch>
           <Route
             exact
@@ -44,7 +46,7 @@ class Shop extends React.Component {
             )}
           />
         </Switch>
-        <Cart />
+        {/*<Cart />*/}
       </div>
     );
   }

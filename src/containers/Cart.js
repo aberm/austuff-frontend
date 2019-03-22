@@ -10,7 +10,7 @@ class Cart extends React.Component {
 
   render() {
     const itemList = this.props.cartItems.map(item => (
-      <li key={item.id}>
+      <li key={item.id} className="ui card">
         <ProductCard key={item.id} product={item.product} />
         <button onClick={() => this.props.removeItemFromCart(item)}>
           Remove from Cart
@@ -25,9 +25,11 @@ class Cart extends React.Component {
             <>
               {this.props.cartItems.length ? (
                 <div className="cartlist-count">
-                  <Link to="/checkout">Checkout</Link>
+                  <div className="ui button">
+                    <Link to="/checkout">Checkout</Link>
+                  </div>
                   <h2>Cart Count: {this.props.cartItems.length}</h2>
-                  <ul> {itemList} </ul>
+                  <ul className="ui two cards"> {itemList} </ul>
                 </div>
               ) : null}
             </>
