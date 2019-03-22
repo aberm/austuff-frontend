@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 import Cart from "./Cart";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { placeOrder } from "../actions/orderActions";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 class Checkout extends React.Component {
-
-  state={
+  state = {
     placed: false,
     link: "/orders/" + this.props.order.id
-  }
+  };
 
   placeOrder = () => {
     this.props.placeOrder();
@@ -18,36 +17,38 @@ class Checkout extends React.Component {
 
     this.setState({
       placed: true
-    })
+    });
     // <Redirect to={link} />
+  };
 
-  }
-
-  render(){
+  render() {
     return (
       <div className="checkout">
         <h1>Hello from Checkout</h1>
         <Cart />
-        { this.props.cartItems.length ?
+        {this.props.cartItems.length ? (
           <button onClick={this.placeOrder}>Place Order</button>
-          : <Redirect to="/shop" />
-        }
+        ) : (
+          <Redirect to="/shop" />
+        )}
         {this.state.placed && <Redirect to={this.state.link} />}
-
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     cartItems: state.cartItems,
     order: state.order
-  }
-}
-const mapDispatchToProps = (dispatch) => {
+  };
+};
+const mapDispatchToProps = dispatch => {
   return {
     placeOrder: () => dispatch(placeOrder())
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Checkout);

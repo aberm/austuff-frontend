@@ -1,30 +1,29 @@
-import React from 'react';
+import React from "react";
 import Cart from "../containers/Cart";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-const Product = (props) => {
-  console.log("PRODUCTS: ", props.products)
-  const theProduct = props.products.find(product => product.id === parseInt(props.routerProps.match.params.id) );
-  console.log("the product: ", theProduct)
+const Product = props => {
+  console.log("PRODUCTS: ", props.products);
+  const theProduct = props.products.find(
+    product => product.id === parseInt(props.routerProps.match.params.id)
+  );
+  console.log("the product: ", theProduct);
   return (
     <div className="product">
       <h1>Hi from Product</h1>
       <p>{props.routerProps.match.params.id}</p>
-      {props.products.length > 0 ?
-        <p>{ theProduct.name }</p>
-        : null
-      }
+      {props.products.length > 0 ? <p>{theProduct.name}</p> : null}
       <Cart />
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = (state) => {
-  console.log("PRODUCT state: ", state)
+const mapStateToProps = state => {
+  console.log("PRODUCT state: ", state);
   return {
     products: state.products
-  }
-}
+  };
+};
 
 // export default Product;
 export default connect(mapStateToProps)(Product);

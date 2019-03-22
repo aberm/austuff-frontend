@@ -1,7 +1,3 @@
-export const currentUser = () => {
+export const currentUser = () => {};
 
-};
-
-export const loggedIn = () => {
-
-};
+export const loggedIn = () => {};

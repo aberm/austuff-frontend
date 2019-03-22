@@ -1,14 +1,12 @@
-import React from 'react';
+import React from "react";
 
 class Category extends React.Component {
-
-  render(){
-
+  render() {
     return (
       <div className="category">
         <h1>Hello from {this.props.match.params.category} Category</h1>
       </div>
-    )
+    );
   }
 }
 

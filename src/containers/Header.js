@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import Login from "../components/Login";
 
 class Header extends React.Component {
-  render(){
+  render() {
     return (
       <div className="header">
         <h2>Header</h2>
         <Login />
       </div>
-    )
+    );
   }
 }
 
