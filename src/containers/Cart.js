@@ -17,6 +17,10 @@ class Cart extends React.Component {
         </button>
       </li>
     ));
+    const price = this.props.cartItems.reduce(
+      (total, i) => total + i.product.price,
+      0
+    );
     return (
       <div className="cart">
         <h1>&nbsp;Cart</h1>
@@ -29,6 +33,12 @@ class Cart extends React.Component {
                     <Link to="/checkout">Checkout</Link>
                   </div>
                   <h2>Cart Count: {this.props.cartItems.length}</h2>
+                  <h2>
+                    Cart Total: $
+                    {price.toString().slice(0, -2) +
+                      "." +
+                      price.toString().slice(-2)}
+                  </h2>
                   <ul className="ui two cards"> {itemList} </ul>
                 </div>
               ) : null}

@@ -9,31 +9,43 @@ import { getProducts } from "../actions/productsActions";
 import { addItemToCart } from "../actions/cartActions";
 
 class Shop extends React.Component {
-  componentDidMount() {}
+  state = {
+    search: ""
+  };
+
+  changeHandler = event => {
+    this.setState({
+      search: event.target.value
+    });
+  };
 
   render() {
-    const links = this.props.products.map(product => (
-      <NavLink key={product.id} to={`/shop/${product.category}`}>
-        {product.category}
-      </NavLink>
-    ));
-
-    const cards = this.props.products.map(product => (
-      <li key={product.id} className="ui card">
-        <ProductCard key={product.id} product={product} />
-        <button
-          onClick={() => {
-            this.props.addItemToCart(product);
-          }}
-        >
-          Add to Cart
-        </button>
-      </li>
-    ));
+    const cards = this.props.products
+      .filter(product => product.name.includes(this.state.search))
+      .map(product => (
+        <li key={product.id} className="ui card card-height">
+          <ProductCard key={product.id} product={product} />
+          <button
+            className="addtocart"
+            onClick={() => {
+              this.props.addItemToCart(product);
+            }}
+          >
+            Add to Cart
+          </button>
+        </li>
+      ));
 
     return (
       <div className="shop">
         <h1 className="center">Shop</h1>
+        <input
+          id="search"
+          type="text"
+          value={this.state.search}
+          placeholder="search"
+          onChange={this.changeHandler}
+        />
         <ul className="ui four cards">
           {localStorage.getItem("token") !== null ? cards : null}
         </ul>

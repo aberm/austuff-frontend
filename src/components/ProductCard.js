@@ -12,6 +12,7 @@ const ProductCard = props => {
         />
       </Link>
       <h3>{props.product.name}</h3>
+      <h4>Price: ${props.product.price / 100}</h4>
     </div>
   );
 };

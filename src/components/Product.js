@@ -12,8 +12,13 @@ const Product = props => {
     <div className="product">
       <h1>Hi from Product</h1>
       <p>{props.routerProps.match.params.id}</p>
-      {props.products.length > 0 ? <p>{theProduct.name}</p> : null}
-      <Cart />
+      {props.products.length > 0 ? (
+        <>
+          <p>{theProduct.name}</p>
+          <p>Price: ${theProduct.price / 100}</p>
+        </>
+      ) : null}
+      {/* <Cart /> */}
     </div>
   );
 };

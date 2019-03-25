@@ -27,7 +27,7 @@
 }
 
 .App {
-  background-image: url("../assets/australiaflag.jpg");
+  /* background-image: url("../assets/australiaflag.jpg"); */
   background-repeat: round;
   height: 100%;
 }
@@ -39,4 +39,23 @@
 .nav {
   background-color: #dffdff;
   width: 5%;
+}
+
+.cart {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.addtocart {
+  bottom: 0;
+  position: absolute;
+  /* float: right; */
+}
+
+.card-height {
+  height: 275px;
+}
+
+#search {
+  float: right;
 }
