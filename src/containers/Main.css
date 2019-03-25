@@ -1,0 +1,42 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
+  grid-column-gap: 2%;
+}
+
+.shop,
+.checkout,
+.product,
+.order,
+.user {
+  grid-column: 1/4;
+}
+
+#logo {
+  width: 15%;
+}
+
+.login,
+.logout {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.App {
+  background-image: url("../assets/australiaflag.jpg");
+  background-repeat: round;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.nav {
+  background-color: #dffdff;
+  width: 5%;
+}
