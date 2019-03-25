@@ -19,7 +19,7 @@ class Cart extends React.Component {
     ));
     return (
       <div className="cart">
-        <h1>Hello from Cart</h1>
+        <h1>&nbsp;Cart</h1>
         <div className="cartlist">
           {localStorage.getItem("token") !== null ? (
             <>

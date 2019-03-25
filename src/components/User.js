@@ -17,7 +17,7 @@ const User = props => {
     orders = null;
   }
   return (
-    <div className="product">
+    <div className="user">
       <h1>Hi from User</h1>
       <p>{orders}</p>
       <Cart />

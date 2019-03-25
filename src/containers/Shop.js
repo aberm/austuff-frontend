@@ -33,8 +33,8 @@ class Shop extends React.Component {
 
     return (
       <div className="shop">
-        <h1>Hello from Shop</h1>
-        <ul class="ui four cards">
+        <h1 className="center">Shop</h1>
+        <ul className="ui four cards">
           {localStorage.getItem("token") !== null ? cards : null}
         </ul>
         <Switch>

@@ -25,7 +25,7 @@ class Checkout extends React.Component {
     return (
       <div className="checkout">
         <h1>Hello from Checkout</h1>
-        <Cart />
+        {/* <Cart /> */}
         {this.props.cartItems.length ? (
           <button onClick={this.placeOrder}>Place Order</button>
         ) : (

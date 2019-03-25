@@ -69,14 +69,13 @@ class Login extends React.Component {
       <>
         {this.state.logged_in ? (
           <div className="logout">
-            <h4>
-              Hello, <Link to={`/user`}>{this.props.user.username}</Link>
-            </h4>
-            <button onClick={this.logout}>Logout</button>
+            <h2>
+              Hello, <Link to={`/user`}>{this.props.user.username}</Link>&nbsp;
+              <button onClick={this.logout}>Logout</button>
+            </h2>
           </div>
         ) : (
           <div className="login">
-            <h1>Hello from Login</h1>
             <form onSubmit={this.submitLogin}>
               <input
                 type="text"
