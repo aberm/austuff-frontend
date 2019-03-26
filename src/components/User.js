@@ -20,7 +20,7 @@ const User = props => {
     <div className="user">
       <h1>Hi from User</h1>
       <p>{orders}</p>
-      <Cart />
+      {/*<Cart />*/}
     </div>
   );
 };

@@ -14,6 +14,7 @@ const Product = props => {
       <p>{props.routerProps.match.params.id}</p>
       {props.products.length > 0 ? (
         <>
+          <img alt="" src={theProduct.img} className="product-img" />
           <p>{theProduct.name}</p>
           <p>Price: ${theProduct.price / 100}</p>
         </>

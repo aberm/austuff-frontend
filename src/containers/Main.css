@@ -38,12 +38,14 @@
 
 .nav {
   background-color: #dffdff;
-  width: 5%;
+  width: 10%;
 }
 
 .cart {
   border: 1px solid black;
   padding: 20px;
+  overflow: scroll;
+  height: 750px;
 }
 
 .addtocart {
@@ -54,8 +56,15 @@
 
 .card-height {
   height: 275px;
+  /* -webkit-box-shadow: 9px 11px 33px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 11px 33px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 9px 11px 33px -4px rgba(0, 0, 0, 0.75); */
 }
 
 #search {
   float: right;
+}
+
+.product-img {
+  width: 35%;
 }
