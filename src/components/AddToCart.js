@@ -15,9 +15,9 @@ class AddToCart extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="addtocart">
         <button
-          className="addtocart"
+          className="addtocart-button"
           onClick={() => {
             this.props.addItemToCart(this.props.product, this.state.quantity);
           }}
@@ -25,7 +25,7 @@ class AddToCart extends React.Component {
           Add to Cart
         </button>
         <input
-          className="addtocart right"
+          className="addtocart-button right"
           type="number"
           name="quantity"
           placeholder="1"

@@ -24,8 +24,11 @@ class Shop extends React.Component {
     const cards = this.props.products
       .filter(product => product.name.includes(this.state.search))
       .map(product => (
-        <li key={product.id} className="ui card card-height">
-          <ProductCard key={product.id} product={product} />
+        // <li key={product.id}>
+        <div className="ui card product-card">
+          <div>
+            <ProductCard key={product.id} product={product} />
+          </div>
           {/*
           <button
             className="addtocart"
@@ -43,8 +46,11 @@ class Shop extends React.Component {
             max="99"
           />
           */}
-          <AddToCart product={product} />
-        </li>
+          <div>
+            <AddToCart product={product} />
+          </div>
+        </div>
+        // </li>
       ));
 
     return (
@@ -57,6 +63,8 @@ class Shop extends React.Component {
           placeholder="search"
           onChange={this.changeHandler}
         />
+        <br />
+        <br />
         <ul className="ui four cards">
           {localStorage.getItem("token") !== null ? cards : null}
         </ul>

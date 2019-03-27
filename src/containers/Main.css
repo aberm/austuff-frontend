@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700");
+
 .main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -14,8 +16,21 @@
   grid-column: 1/4;
 }
 
+.checkout,
+.product,
+.order,
+.user,
+.signup {
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+}
+
 #logo {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 15%;
+  height: 100%;
 }
 
 .login,
@@ -23,14 +38,25 @@
   float: right;
 }
 
+.logout h2 {
+  color: black;
+}
+
 .center {
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
+  color: white;
 }
 
 .App {
+  /* background-color: rgba(0, 150, 180, 0.25); */
+  /* fallback for old browsers */
+
+  background-color: #1d3c7a;
   /* background-image: url("../assets/australiaflag.jpg"); */
   background-repeat: round;
-  height: 100%;
+  display: grid;
+  grid-template-rows: 0px 0px 150px 1fr 100px;
 }
 
 #root {
@@ -43,28 +69,40 @@
 }
 
 .cart {
-  border: 1px solid black;
+  /* background-color: rgba(0, 150, 180, 0.5); */
+  background-color: rgba(165, 35, 45, 1);
   padding: 20px;
+  margin-right: 10px;
   overflow: scroll;
   height: 750px;
 }
 
-.addtocart {
+.cart h1,
+h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+}
+
+.addtocart-button {
   bottom: 0;
   position: absolute;
   /* float: right; */
+}
+.addtocart {
 }
 
 .right {
   right: 0;
 }
 
-.card-height {
-  height: 275px;
-  /* -webkit-box-shadow: 9px 11px 33px -4px rgba(0, 0, 0, 0.75);
+/* .card-height {
+  height: 300px; */
+/* -webkit-box-shadow: 9px 11px 33px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 9px 11px 33px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 9px 11px 33px -4px rgba(0, 0, 0, 0.75); */
-}
+/* display: grid;
+  grid-template-rows: 75% 25%;
+} */
 
 #search {
   float: right;
@@ -72,4 +110,33 @@
 
 .product-img {
   width: 35%;
+}
+
+.product-info {
+  /* height: 350px; */
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.product-info img {
+  background-size: cover;
+}
+
+.product-info h3 {
+  margin-top: 60px;
+}
+
+.header {
+  background-color: rgba(255, 250, 240, 1);
+}
+
+.cart-product {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  height: 250px;
+  margin-top: 50px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 7px;
+  background-size: cover;
 }
