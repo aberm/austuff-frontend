@@ -21,13 +21,23 @@ class Checkout extends React.Component {
     // <Redirect to={link} />
   };
 
+  formHandler = event => {
+    event.preventDefault();
+  };
+
   render() {
     return (
       <div className="checkout">
         <h1>Hello from Checkout</h1>
         {/* <Cart /> */}
         {this.props.cartItems.length ? (
-          <button onClick={this.placeOrder}>Place Order</button>
+          <>
+            <form className="checkout-form" onSubmit={this.formHandler}>
+              <input type="text" placeholder="credit card" />
+              <br />
+              <button onClick={this.placeOrder}>Place Order</button>
+            </form>
+          </>
         ) : (
           <Redirect to="/shop" />
         )}

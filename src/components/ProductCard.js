@@ -11,7 +11,10 @@ const ProductCard = props => {
           style={{ width: "100%" }}
         />
       </Link>
-      <h3>{props.product.name}</h3>
+      <h3>
+        {props.product.name}
+        {props.quantity && `x ${props.quantity}`}
+      </h3>
       <h4>Price: ${props.product.price / 100}</h4>
     </div>
   );

@@ -54,6 +54,7 @@ class Signup extends React.Component {
             onChange={this.formChangeHandler}
             placeholder="password confirmation"
           />
+          <br />
           <button>Submit</button>
         </form>
         {this.props.user.id && <Redirect to="/shop" />}

@@ -9,7 +9,8 @@
 .checkout,
 .product,
 .order,
-.user {
+.user,
+.signup {
   grid-column: 1/4;
 }
 
@@ -52,6 +53,10 @@
   bottom: 0;
   position: absolute;
   /* float: right; */
+}
+
+.right {
+  right: 0;
 }
 
 .card-height {
