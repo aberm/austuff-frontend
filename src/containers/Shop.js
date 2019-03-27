@@ -2,6 +2,7 @@ import React from "react";
 import Cart from "./Cart";
 import Category from "./Category";
 import ProductCard from "../components/ProductCard";
+import AddToCart from "../components/AddToCart";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
@@ -25,6 +26,7 @@ class Shop extends React.Component {
       .map(product => (
         <li key={product.id} className="ui card card-height">
           <ProductCard key={product.id} product={product} />
+          {/*
           <button
             className="addtocart"
             onClick={() => {
@@ -33,6 +35,15 @@ class Shop extends React.Component {
           >
             Add to Cart
           </button>
+          <input
+            className="addtocart right"
+            type="number"
+            name="quantity"
+            min="1"
+            max="99"
+          />
+          */}
+          <AddToCart product={product} />
         </li>
       ));
 

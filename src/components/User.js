@@ -6,12 +6,14 @@ const User = props => {
   let orders;
   if (props.user.orders) {
     orders = props.user.orders.map(order => {
-      const link = "orders/" + order.id;
-      return (
-        <li key={order.id}>
-          <Link to={link}>Order {order.id}</Link>
-        </li>
-      );
+      if (order.completed === true) {
+        const link = "orders/" + order.id;
+        return (
+          <li key={order.id}>
+            <Link to={link}>Order {order.id}</Link>
+          </li>
+        );
+      }
     });
   } else {
     orders = null;

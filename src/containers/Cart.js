@@ -22,7 +22,7 @@ class Cart extends React.Component {
       </li>
     ));
     const price = this.props.cartItems.reduce(
-      (total, i) => total + i.product.price,
+      (total, i) => total + i.product.price * i.quantity,
       0
     );
 

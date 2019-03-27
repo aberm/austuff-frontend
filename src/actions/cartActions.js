@@ -20,7 +20,7 @@ export const addToCart = product => {
   };
 };
 
-export const addItemToCart = item => {
+export const addItemToCart = (item, quantity = 1) => {
   return (dispatch, getState) => {
     return fetch(API_ROOT + "order_items", {
       method: "POST",
@@ -30,7 +30,8 @@ export const addItemToCart = item => {
       },
       body: JSON.stringify({
         order_id: getState().order.id,
-        product_id: item.id
+        product_id: item.id,
+        quantity: quantity
       })
     })
       .then(res => res.json())
