@@ -15,6 +15,7 @@ const Product = props => {
         <>
           <img alt="" src={theProduct.img} className="product-img" />
           <p>Price: ${theProduct.price / 100}</p>
+          <p>{theProduct.category}</p>
         </>
       ) : null}
       {/* <Cart /> */}
