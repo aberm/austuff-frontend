@@ -64,8 +64,8 @@
 }
 
 .nav {
+  padding-top: 15px;
   background-color: #dffdff;
-  width: 10%;
 }
 
 .cart {
@@ -139,4 +139,9 @@ h2 {
   background-color: white;
   border-radius: 7px;
   background-size: cover;
+}
+
+.nav h2 {
+  color: black;
+  margin-left: 10px;
 }
