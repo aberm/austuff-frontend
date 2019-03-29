@@ -28,7 +28,7 @@ class Checkout extends React.Component {
   render() {
     return (
       <div className="checkout">
-        <h1>Hello from Checkout</h1>
+        <h1>Checkout</h1>
         {/* <Cart /> */}
         {this.props.cartItems.length ? (
           <>

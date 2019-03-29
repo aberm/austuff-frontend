@@ -22,8 +22,7 @@ const Order = ({ orders, routerProps }) => {
 
   return (
     <div className="order">
-      <h1>Hi from Order</h1>
-      <h3>{order.id}</h3>
+      <h1>Order #{order.id}</h1>
       <ul>{items}</ul>
       {order.total_price && (
         <h3>
