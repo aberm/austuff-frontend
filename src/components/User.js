@@ -20,8 +20,9 @@ const User = props => {
   }
   return (
     <div className="user">
-      <h1>Hi from User</h1>
-      <p>{orders}</p>
+      <h1>{props.user.username}'s Page</h1>
+      <p>{props.user.points} points</p>
+      <ul>{orders}</ul>
       {/*<Cart />*/}
     </div>
   );
