@@ -20,24 +20,55 @@ export const addToCart = product => {
   };
 };
 
+export const addExistingToCart = product => {
+  return {
+    type: "ADD_EXISTING_TO_CART",
+    payload: product
+  };
+};
+
 export const addItemToCart = (item, quantity = 1) => {
   return (dispatch, getState) => {
-    return fetch(API_ROOT + "order_items", {
-      method: "POST",
-      headers: {
-        ...HEADERS,
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      },
-      body: JSON.stringify({
-        order_id: getState().order.id,
-        product_id: item.id,
-        quantity: quantity
+    const existing = getState().cartItems.find(
+      cartItem => cartItem.product.id === item.id
+    );
+    console.log("yes it exists: ", existing);
+    if (!!existing) {
+      // product already in cart
+      return fetch(API_ROOT + "order_items/" + existing.id, {
+        method: "PATCH",
+        headers: {
+          ...HEADERS,
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({
+          quantity: parseInt(existing.quantity) + parseInt(quantity)
+        })
       })
-    })
-      .then(res => res.json())
-      .then(res => {
-        dispatch(addToCart(res));
-      });
+        .then(res => res.json())
+        .then(res => {
+          console.log("existing item res: ".toUpperCase(), res);
+          dispatch(addExistingToCart(res));
+        });
+    } else {
+      // new product in cart
+      return fetch(API_ROOT + "order_items", {
+        method: "POST",
+        headers: {
+          ...HEADERS,
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({
+          order_id: getState().order.id,
+          product_id: item.id,
+          quantity: quantity
+        })
+      })
+        .then(res => res.json())
+        .then(res => {
+          dispatch(addToCart(res));
+        });
+    }
   };
 };
 

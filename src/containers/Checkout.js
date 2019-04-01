@@ -7,7 +7,10 @@ import { Redirect } from "react-router-dom";
 class Checkout extends React.Component {
   state = {
     placed: false,
-    link: "/orders/" + this.props.order.id
+    link: "/orders/" + this.props.order.id,
+    form: {
+      creditcard: ""
+    }
   };
 
   placeOrder = () => {
@@ -19,6 +22,22 @@ class Checkout extends React.Component {
       placed: true
     });
     // <Redirect to={link} />
+  };
+
+  changeHandler = event => {
+    // weird card number validation
+
+    if (!isNaN(event.target.value)) {
+      this.setState(
+        {
+          form: {
+            ...this.state.form,
+            creditcard: event.target.value
+          }
+        },
+        () => console.log(this.state.form.creditcard)
+      );
+    }
   };
 
   formHandler = event => {
@@ -33,7 +52,13 @@ class Checkout extends React.Component {
         {this.props.cartItems.length ? (
           <>
             <form className="checkout-form" onSubmit={this.formHandler}>
-              <input type="text" placeholder="credit card" />
+              <input
+                type="text"
+                id="creditcard"
+                placeholder="credit card"
+                value={this.state.form.creditcard}
+                onChange={this.changeHandler}
+              />
               <br />
               <button onClick={this.placeOrder}>Place Order</button>
             </form>

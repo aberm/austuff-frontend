@@ -7,6 +7,16 @@ export default function cartReducer(state = [], action) {
     case "ADD_TO_CART":
       return [...state, action.payload];
       break;
+    case "ADD_EXISTING_TO_CART":
+      console.log(
+        "LARSHOH ",
+        state.find(item => item.product.id === action.payload.product.id)
+      );
+
+      const state2 = state.filter(item => item.id !== action.payload.id);
+
+      return [...state2, action.payload];
+      break;
     case "REMOVE_FROM_CART":
       return state.filter(item => item.id !== action.payload.id);
       break;
