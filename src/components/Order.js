@@ -32,6 +32,10 @@ const Order = ({ orders, routerProps }) => {
             order.total_price.toString().slice(-2)}
         </h3>
       )}
+
+      <div>
+        <h5>Add a review</h5>
+      </div>
     </div>
   );
 };

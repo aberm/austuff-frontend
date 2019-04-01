@@ -25,27 +25,10 @@ class Shop extends React.Component {
       .filter(product => product.name.includes(this.state.search))
       .map(product => (
         // <li key={product.id}>
-        <div className="ui card product-card">
+        <div key={product.id} className="ui card product-card">
           <div>
             <ProductCard key={product.id} product={product} />
           </div>
-          {/*
-          <button
-            className="addtocart"
-            onClick={() => {
-              this.props.addItemToCart(product);
-            }}
-          >
-            Add to Cart
-          </button>
-          <input
-            className="addtocart right"
-            type="number"
-            name="quantity"
-            min="1"
-            max="99"
-          />
-          */}
           <div>
             <AddToCart product={product} />
           </div>

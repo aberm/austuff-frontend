@@ -14,7 +14,7 @@ const ProductCard = props => {
       <h3>
         {props.product.name}
         {props.quantity > 1 && ` x ${props.quantity}`}
-        <h4>Price: ${(props.product.price * (props.quantity || 1)) / 100}</h4>
+        <p>Price: ${(props.product.price * (props.quantity || 1)) / 100}</p>
       </h3>
     </div>
   );

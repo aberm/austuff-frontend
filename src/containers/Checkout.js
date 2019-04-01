@@ -27,7 +27,7 @@ class Checkout extends React.Component {
   changeHandler = event => {
     // weird card number validation
 
-    if (!isNaN(event.target.value)) {
+    if (!isNaN(event.target.value) && !event.target.value.includes(" ")) {
       this.setState(
         {
           form: {
@@ -55,12 +55,17 @@ class Checkout extends React.Component {
               <input
                 type="text"
                 id="creditcard"
-                placeholder="credit card"
+                placeholder="credit card number"
                 value={this.state.form.creditcard}
                 onChange={this.changeHandler}
               />
               <br />
-              <button onClick={this.placeOrder}>Place Order</button>
+              <input type="text" placeholder="address" />
+              <br />
+              <br />
+              <button className="place-order" onClick={this.placeOrder}>
+                Place Order
+              </button>
             </form>
           </>
         ) : (

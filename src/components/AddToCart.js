@@ -20,6 +20,9 @@ class AddToCart extends React.Component {
           className="addtocart-button"
           onClick={() => {
             this.props.addItemToCart(this.props.product, this.state.quantity);
+            this.setState({
+              quantity: 1
+            });
           }}
         >
           Add to Cart
@@ -28,9 +31,9 @@ class AddToCart extends React.Component {
           className="addtocart-button right"
           type="number"
           name="quantity"
-          placeholder="1"
           min="1"
           max="99"
+          value={this.state.quantity}
           onChange={this.changeHandler}
         />
       </div>

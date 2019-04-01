@@ -39,7 +39,7 @@ class Cart extends React.Component {
               {this.props.cartItems.length ? (
                 <div className="cartlist-count">
                   <div className="ui button">
-                    <Link to="/checkout">Checkout</Link>
+                    <Link to="/checkout">Checkout &gt;</Link>
                   </div>
                   <h2>Cart Count: {this.props.cartItems.length}</h2>
                   <h2>
