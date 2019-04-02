@@ -3,6 +3,7 @@ import React from "react";
 const Order = ({ orders, routerProps }) => {
   let order = { id: "loading" };
   let items = null;
+  let options = [];
 
   if (orders) {
     order = orders.find(
@@ -32,10 +33,6 @@ const Order = ({ orders, routerProps }) => {
             order.total_price.toString().slice(-2)}
         </h3>
       )}
-
-      <div>
-        <h5>Add a review</h5>
-      </div>
     </div>
   );
 };
