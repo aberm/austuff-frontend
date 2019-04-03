@@ -7,7 +7,10 @@ import { Redirect } from "react-router-dom";
 class Checkout extends React.Component {
   state = {
     placed: false,
-    link: "/orders/" + this.props.order.id
+    link: "/orders/" + this.props.order.id,
+    form: {
+      creditcard: ""
+    }
   };
 
   placeOrder = () => {
@@ -21,6 +24,22 @@ class Checkout extends React.Component {
     // <Redirect to={link} />
   };
 
+  changeHandler = event => {
+    // weird card number validation
+
+    if (!isNaN(event.target.value) && !event.target.value.includes(" ")) {
+      this.setState(
+        {
+          form: {
+            ...this.state.form,
+            creditcard: event.target.value
+          }
+        },
+        () => console.log(this.state.form.creditcard)
+      );
+    }
+  };
+
   formHandler = event => {
     event.preventDefault();
   };
@@ -28,14 +47,25 @@ class Checkout extends React.Component {
   render() {
     return (
       <div className="checkout">
-        <h1>Hello from Checkout</h1>
+        <h1>Checkout</h1>
         {/* <Cart /> */}
         {this.props.cartItems.length ? (
           <>
             <form className="checkout-form" onSubmit={this.formHandler}>
-              <input type="text" placeholder="credit card" />
+              <input
+                type="text"
+                id="creditcard"
+                placeholder="credit card number"
+                value={this.state.form.creditcard}
+                onChange={this.changeHandler}
+              />
               <br />
-              <button onClick={this.placeOrder}>Place Order</button>
+              <input type="text" placeholder="address" />
+              <br />
+              <br />
+              <button className="place-order" onClick={this.placeOrder}>
+                Place Order
+              </button>
             </form>
           </>
         ) : (

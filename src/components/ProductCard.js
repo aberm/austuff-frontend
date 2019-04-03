@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ProductCard = props => {
   return (
-    <div className="product-card">
+    <div className="product-info">
       <Link to={`/products/${props.product.id}`}>
         <img
           alt={props.product.name}
@@ -13,9 +13,9 @@ const ProductCard = props => {
       </Link>
       <h3>
         {props.product.name}
-        {props.quantity && `x ${props.quantity}`}
+        {props.quantity > 1 && ` x ${props.quantity}`}
+        <p>Price: ${(props.product.price * (props.quantity || 1)) / 100}</p>
       </h3>
-      <h4>Price: ${props.product.price / 100}</h4>
     </div>
   );
 };

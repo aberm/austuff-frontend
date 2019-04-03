@@ -3,6 +3,7 @@ import React from "react";
 const Order = ({ orders, routerProps }) => {
   let order = { id: "loading" };
   let items = null;
+  let options = [];
 
   if (orders) {
     order = orders.find(
@@ -13,16 +14,25 @@ const Order = ({ orders, routerProps }) => {
     } else {
       console.log("items: ", order.order_items);
       items = order.order_items.map(item => (
-        <li key={item.id}>{item.product.name}</li>
+        <li key={item.id}>
+          {item.product.name} {item.quantity > 1 && ` x ${item.quantity}`}
+        </li>
       ));
     }
   }
 
   return (
     <div className="order">
-      <h1>Hi from Order</h1>
-      <h3>{order.id}</h3>
+      <h1>Order #{order.id}</h1>
       <ul>{items}</ul>
+      {order.total_price && (
+        <h3>
+          Total price: $
+          {order.total_price.toString().slice(0, -2) +
+            "." +
+            order.total_price.toString().slice(-2)}
+        </h3>
+      )}
     </div>
   );
 };

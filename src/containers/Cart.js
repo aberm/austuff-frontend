@@ -10,32 +10,36 @@ class Cart extends React.Component {
 
   render() {
     const itemList = this.props.cartItems.map(item => (
-      <li key={item.id} className="ui card">
-        <ProductCard
-          key={item.id}
-          product={item.product}
-          quantity={item.quantity}
-        />
-        <button onClick={() => this.props.removeItemFromCart(item)}>
-          Remove from Cart
-        </button>
-      </li>
+      <div key={item.id} className="cart-product">
+        <div>
+          <ProductCard
+            key={item.id}
+            product={item.product}
+            quantity={item.quantity}
+          />
+        </div>
+        <div>
+          <button onClick={() => this.props.removeItemFromCart(item)}>
+            Remove from Cart
+          </button>
+        </div>
+      </div>
     ));
     const price = this.props.cartItems.reduce(
-      (total, i) => total + i.product.price,
+      (total, i) => total + i.product.price * i.quantity,
       0
     );
 
     return (
       <div className="cart">
-        <h1>&nbsp;Cart</h1>
+        <h1>Cart</h1>
         <div className="cartlist">
           {localStorage.getItem("token") !== null ? (
             <>
               {this.props.cartItems.length ? (
                 <div className="cartlist-count">
                   <div className="ui button">
-                    <Link to="/checkout">Checkout</Link>
+                    <Link to="/checkout">Checkout &gt;</Link>
                   </div>
                   <h2>Cart Count: {this.props.cartItems.length}</h2>
                   <h2>

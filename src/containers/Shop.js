@@ -2,6 +2,7 @@ import React from "react";
 import Cart from "./Cart";
 import Category from "./Category";
 import ProductCard from "../components/ProductCard";
+import AddToCart from "../components/AddToCart";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
@@ -23,17 +24,16 @@ class Shop extends React.Component {
     const cards = this.props.products
       .filter(product => product.name.includes(this.state.search))
       .map(product => (
-        <li key={product.id} className="ui card card-height">
-          <ProductCard key={product.id} product={product} />
-          <button
-            className="addtocart"
-            onClick={() => {
-              this.props.addItemToCart(product);
-            }}
-          >
-            Add to Cart
-          </button>
-        </li>
+        // <li key={product.id}>
+        <div key={product.id} className="ui card product-card">
+          <div>
+            <ProductCard key={product.id} product={product} />
+          </div>
+          <div>
+            <AddToCart product={product} />
+          </div>
+        </div>
+        // </li>
       ));
 
     return (
@@ -46,6 +46,8 @@ class Shop extends React.Component {
           placeholder="search"
           onChange={this.changeHandler}
         />
+        <br />
+        <br />
         <ul className="ui four cards">
           {localStorage.getItem("token") !== null ? cards : null}
         </ul>
