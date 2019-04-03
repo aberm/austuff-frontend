@@ -1,9 +1,9 @@
 import React from "react";
+import Review from "./Review";
 
 const Order = ({ orders, routerProps }) => {
   let order = { id: "loading" };
   let items = null;
-  let options = [];
 
   if (orders) {
     order = orders.find(
@@ -33,6 +33,8 @@ const Order = ({ orders, routerProps }) => {
             order.total_price.toString().slice(-2)}
         </h3>
       )}
+
+      <Review order={order} />
     </div>
   );
 };
