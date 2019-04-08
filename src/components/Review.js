@@ -2,7 +2,8 @@ import React from "react";
 
 class Review extends React.Component {
   state = {
-    review: ""
+    review: "",
+    item: 1
   };
 
   changeHandler = event => {
@@ -31,7 +32,11 @@ class Review extends React.Component {
       <div className="review">
         <h5>Add a review</h5>
         <form className="review-input" onSubmit={this.formSubmit}>
-          <select>{options}</select>
+          <select
+            onChange={event => console.log("LORSHOH: ", event.target.value)}
+          >
+            {options}
+          </select>
           <br />
           <textarea
             rows="4"
