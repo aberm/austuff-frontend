@@ -25,10 +25,12 @@ export const createOrLoadLastOrder = () => {
   return (dispatch, getState) => {
     if (Object.keys(getState().user).length > 0) {
       const user = getState().user;
-      if (user.orders.length) {
-        dispatch(loadOrCreateOrder(user.orders[user.orders.length - 1]));
-      } else {
-        dispatch(createNewOrder());
+      if (user.orders) {
+        if (user.orders.length) {
+          dispatch(loadOrCreateOrder(user.orders[user.orders.length - 1]));
+        } else {
+          dispatch(createNewOrder());
+        }
       }
     }
     // else {
